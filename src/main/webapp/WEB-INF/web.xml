@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>Controleur</servlet-name>
+        <servlet-class>com.controleur.Controleur</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Controleur</servlet-name>
+        <url-pattern>/Controleur</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>Controleur</welcome-file>
+    </welcome-file-list>
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
+        </jsp-property-group>
+    </jsp-config>
+</web-app>
