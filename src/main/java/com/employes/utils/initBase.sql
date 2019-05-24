@@ -1,36 +1,45 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- * Author:  Jacques Augustin
- * Created: 3 nov. 2016
- */
+/**** CIBLE : MySQL ****/
 
 /*On supprime les tables si elles existent */
-DROP TABLE EMPLOYES;
+DROP TABLE IF EXISTS EMPLOYES;
 
-/*Création de la table EMPLOYES*/
-CREATE TABLE "EMPLOYES" (
-	"ID" INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
-	"NOM" VARCHAR(25) ,
-	"PRENOM" VARCHAR(25) ,
-	"TELDOM" VARCHAR(10) ,
-	"TELPORT" VARCHAR(10) ,
-	"TELPRO" VARCHAR(10) ,
-	"ADRESSE" VARCHAR(150) ,
-	"CODEPOSTAL" VARCHAR(5) ,
-	"VILLE" VARCHAR(25) ,
-	"EMAIL" VARCHAR(25) ,
-	CONSTRAINT primary_key_membre PRIMARY KEY (ID)
+CREATE TABLE EMPLOYES(
+	ID INT NOT NULL AUTO_INCREMENT,
+	NOM VARCHAR(25),
+	PRENOM VARCHAR(25),
+    TELDOM VARCHAR(10),
+	TELPORT VARCHAR(10),
+	TELPRO VARCHAR(10),
+	ADRESSE VARCHAR(150),
+	CODEPOSTAL VARCHAR(15),
+	VILLE VARCHAR(25),
+	EMAIL VARCHAR(25),
+    PRIMARY KEY (ID)
 );
 
 /*Insertion de 4 membres*/
 INSERT INTO EMPLOYES(NOM,PRENOM,TELDOM,TELPORT,TELPRO,ADRESSE,CODEPOSTAL,VILLE,EMAIL) VALUES
-('Simpson','Homer','0123456789','0612345678','0698765432','2 avenue Duff','92700','Colombes','hsimpson@gmail.com'),
-('Simpson','Bart','0145362787','0645362718','0611563477','10 rue des Rebelles','92270','Bois-colombes','bsimpson@gmail.com'),
-('Lagaffe','Gaston','0187665987','0623334256','0654778654','65 rue de la Paresse','92700','Colombes','glagaffe@yahoo.fr'),
-('Mafalda','Querida','0187611987','0783334256','0658878654','6 rue de Buenos Aires','75016','Paris','qmafalda@hotmail.ar'),
-('Woodpecker','Woody','0187384987','0622494256','0674178654','5 bvd des Picoreurs','21000','Dijon','woody@mail.co.uk'),
-('Brown','Charlie','0122456678','0699854673','0623445166','140 avenue Foche','90000','Nanterre','cbrown@live.com');
+('Bond','James','0123456789','0612345678','0698765432','2 avenue 007','92700','Colombes','jbond@gmail.com');
+INSERT INTO EMPLOYES(NOM,PRENOM,TELDOM,TELPORT,TELPRO,ADRESSE,CODEPOSTAL,VILLE,EMAIL) VALUES
+('Jones','Indiana','0145362787','0645362718','0611563477','10 rue des Aventuriers','92270','Bois-colombes','ijones@gmail.com');
+INSERT INTO EMPLOYES(NOM,PRENOM,TELDOM,TELPORT,TELPRO,ADRESSE,CODEPOSTAL,VILLE,EMAIL) VALUES
+('Bourne','Jason','0187665987','0623334256','0654778654','65 rue Agent Secret Perdu','92700','Colombes','jbourne@yahoo.fr');
+INSERT INTO EMPLOYES(NOM,PRENOM,TELDOM,TELPORT,TELPRO,ADRESSE,CODEPOSTAL,VILLE,EMAIL) VALUES
+('Stark','Arya','0187611987','0783334256','0658878654','6 rue Sans-Nom','75016','Paris','astark@nord.com');
+INSERT INTO EMPLOYES(NOM,PRENOM,TELDOM,TELPORT,TELPRO,ADRESSE,CODEPOSTAL,VILLE,EMAIL) VALUES
+('Lanister','Cersei','0187384987','0622494256','0674178654','5 bvd des Reines','21000','Dijon','clanister@mail.co.uk');
+
+
+/*On supprime les tables si elles existent */
+DROP TABLE IF EXISTS IDENTIFIANT;
+
+/*Création de la table IDENTIFIANTS*/
+CREATE TABLE IDENTIFIANT (
+	ID INT NOT NULL AUTO_INCREMENT,
+	LOGIN VARCHAR(25) NOT NULL,
+	MDP VARCHAR(25) NOT NULL,
+    PRIMARY KEY (ID)
+);
+
+/*Insertion de l'utilisateur admin*/
+INSERT INTO IDENTIFIANT(LOGIN,MDP) VALUES('admin','admin');
